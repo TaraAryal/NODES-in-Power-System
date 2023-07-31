@@ -1,15 +1,15 @@
 /*
- * Frequency_squarechirp_private.h
+ * Frequency_stepchirp_private.h
  *
  * Academic License - for use in teaching, academic research, and meeting
  * course requirements at degree granting institutions only.  Not for
  * government, commercial, or other organizational use.
  *
- * Code generation for model "Frequency_squarechirp".
+ * Code generation for model "Frequency_stepchirp".
  *
- * Model version              : 1.29
+ * Model version              : 1.31
  * Simulink Coder version : 9.6 (R2021b) 14-May-2021
- * C source code generated on : Mon Jul 31 12:14:46 2023
+ * C source code generated on : Mon Jul 31 18:03:32 2023
  *
  * Target selection: grt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -18,8 +18,8 @@
  * Validation result: Not run
  */
 
-#ifndef RTW_HEADER_Frequency_squarechirp_private_h_
-#define RTW_HEADER_Frequency_squarechirp_private_h_
+#ifndef RTW_HEADER_Frequency_stepchirp_private_h_
+#define RTW_HEADER_Frequency_stepchirp_private_h_
 #include "rtwtypes.h"
 #include "builtin_typeid_types.h"
 #include "multiword_types.h"
@@ -42,6 +42,6 @@
 #endif
 
 /* private model entry point functions */
-extern void Frequency_squarechirp_derivatives(void);
+extern void Frequency_stepchirp_derivatives(void);
 
-#endif                         /* RTW_HEADER_Frequency_squarechirp_private_h_ */
+#endif                           /* RTW_HEADER_Frequency_stepchirp_private_h_ */

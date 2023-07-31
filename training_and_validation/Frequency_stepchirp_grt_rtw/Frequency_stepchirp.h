@@ -1,15 +1,15 @@
 /*
- * Frequency_squarechirp.h
+ * Frequency_stepchirp.h
  *
  * Academic License - for use in teaching, academic research, and meeting
  * course requirements at degree granting institutions only.  Not for
  * government, commercial, or other organizational use.
  *
- * Code generation for model "Frequency_squarechirp".
+ * Code generation for model "Frequency_stepchirp".
  *
- * Model version              : 1.29
+ * Model version              : 1.31
  * Simulink Coder version : 9.6 (R2021b) 14-May-2021
- * C source code generated on : Mon Jul 31 12:14:46 2023
+ * C source code generated on : Mon Jul 31 18:03:32 2023
  *
  * Target selection: grt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -18,20 +18,20 @@
  * Validation result: Not run
  */
 
-#ifndef RTW_HEADER_Frequency_squarechirp_h_
-#define RTW_HEADER_Frequency_squarechirp_h_
+#ifndef RTW_HEADER_Frequency_stepchirp_h_
+#define RTW_HEADER_Frequency_stepchirp_h_
 #include <string.h>
 #include <float.h>
 #include <stddef.h>
-#ifndef Frequency_squarechirp_COMMON_INCLUDES_
-#define Frequency_squarechirp_COMMON_INCLUDES_
+#ifndef Frequency_stepchirp_COMMON_INCLUDES_
+#define Frequency_stepchirp_COMMON_INCLUDES_
 #include "rtwtypes.h"
 #include "rtw_continuous.h"
 #include "rtw_solver.h"
 #include "rt_logging.h"
-#endif                              /* Frequency_squarechirp_COMMON_INCLUDES_ */
+#endif                                /* Frequency_stepchirp_COMMON_INCLUDES_ */
 
-#include "Frequency_squarechirp_types.h"
+#include "Frequency_stepchirp_types.h"
 
 /* Shared type includes */
 #include "multiword_types.h"
@@ -170,33 +170,32 @@
 typedef struct {
   real_T deltaomega1;                  /* '<Root>/deltaomega 1' */
   real_T Originalw;                    /* '<Root>/Original w' */
-  real_T PulseGenerator1;              /* '<Root>/Pulse Generator1' */
+  real_T Step;                         /* '<Root>/Step' */
   real_T dotx[2];                      /* '<Root>/State Space Equation1' */
-} B_Frequency_squarechirp_T;
+} B_Frequency_stepchirp_T;
 
 /* Block states (default storage) for system '<Root>' */
 typedef struct {
   real_T Delay_DSTATE[250];            /* '<Root>/Delay' */
-  int32_T clockTickCounter;            /* '<Root>/Pulse Generator1' */
-} DW_Frequency_squarechirp_T;
+} DW_Frequency_stepchirp_T;
 
 /* Continuous states (default storage) */
 typedef struct {
   real_T deltaomega1_CSTATE;           /* '<Root>/deltaomega 1' */
   real_T Originalw_CSTATE;             /* '<Root>/Original w' */
-} X_Frequency_squarechirp_T;
+} X_Frequency_stepchirp_T;
 
 /* State derivatives (default storage) */
 typedef struct {
   real_T deltaomega1_CSTATE;           /* '<Root>/deltaomega 1' */
   real_T Originalw_CSTATE;             /* '<Root>/Original w' */
-} XDot_Frequency_squarechirp_T;
+} XDot_Frequency_stepchirp_T;
 
 /* State disabled  */
 typedef struct {
   boolean_T deltaomega1_CSTATE;        /* '<Root>/deltaomega 1' */
   boolean_T Originalw_CSTATE;          /* '<Root>/Original w' */
-} XDis_Frequency_squarechirp_T;
+} XDis_Frequency_stepchirp_T;
 
 #ifndef ODE4_INTG
 #define ODE4_INTG
@@ -214,10 +213,10 @@ typedef struct {
   real_T inputpower1;                  /* '<Root>/inputpower1' */
   real_T deltaomega;                   /* '<Root>/deltaomega' */
   real_T deltaomegadot;                /* '<Root>/deltaomegadot' */
-} ExtY_Frequency_squarechirp_T;
+} ExtY_Frequency_stepchirp_T;
 
 /* Parameters (default storage) */
-struct P_Frequency_squarechirp_T_ {
+struct P_Frequency_stepchirp_T_ {
   real_T Delay_InitialCondition;       /* Expression: 0.0
                                         * Referenced by: '<Root>/Delay'
                                         */
@@ -227,26 +226,23 @@ struct P_Frequency_squarechirp_T_ {
   real_T Originalw_IC;                 /* Expression: 0
                                         * Referenced by: '<Root>/Original w'
                                         */
-  real_T PulseGenerator1_Amp;          /* Expression: 0.1
-                                        * Referenced by: '<Root>/Pulse Generator1'
+  real_T Step_Time;                    /* Expression: 20
+                                        * Referenced by: '<Root>/Step'
                                         */
-  real_T PulseGenerator1_Period;   /* Computed Parameter: PulseGenerator1_Period
-                                    * Referenced by: '<Root>/Pulse Generator1'
-                                    */
-  real_T PulseGenerator1_Duty;       /* Computed Parameter: PulseGenerator1_Duty
-                                      * Referenced by: '<Root>/Pulse Generator1'
-                                      */
-  real_T PulseGenerator1_PhaseDelay;   /* Expression: 0
-                                        * Referenced by: '<Root>/Pulse Generator1'
+  real_T Step_Y0;                      /* Expression: 0
+                                        * Referenced by: '<Root>/Step'
+                                        */
+  real_T Step_YFinal;                  /* Expression: 0.2
+                                        * Referenced by: '<Root>/Step'
                                         */
 };
 
 /* Real-time Model Data Structure */
-struct tag_RTM_Frequency_squarechirp_T {
+struct tag_RTM_Frequency_stepchirp_T {
   const char_T *errorStatus;
   RTWLogInfo *rtwLogInfo;
   RTWSolverInfo solverInfo;
-  X_Frequency_squarechirp_T *contStates;
+  X_Frequency_stepchirp_T *contStates;
   int_T *periodicContStateIndices;
   real_T *periodicContStateRanges;
   real_T *derivs;
@@ -290,28 +286,28 @@ struct tag_RTM_Frequency_squarechirp_T {
 };
 
 /* Block parameters (default storage) */
-extern P_Frequency_squarechirp_T Frequency_squarechirp_P;
+extern P_Frequency_stepchirp_T Frequency_stepchirp_P;
 
 /* Block signals (default storage) */
-extern B_Frequency_squarechirp_T Frequency_squarechirp_B;
+extern B_Frequency_stepchirp_T Frequency_stepchirp_B;
 
 /* Continuous states (default storage) */
-extern X_Frequency_squarechirp_T Frequency_squarechirp_X;
+extern X_Frequency_stepchirp_T Frequency_stepchirp_X;
 
 /* Block states (default storage) */
-extern DW_Frequency_squarechirp_T Frequency_squarechirp_DW;
+extern DW_Frequency_stepchirp_T Frequency_stepchirp_DW;
 
 /* External outputs (root outports fed by signals with default storage) */
-extern ExtY_Frequency_squarechirp_T Frequency_squarechirp_Y;
+extern ExtY_Frequency_stepchirp_T Frequency_stepchirp_Y;
 
 /* Model entry point functions */
-extern void Frequency_squarechirp_initialize(void);
-extern void Frequency_squarechirp_output(void);
-extern void Frequency_squarechirp_update(void);
-extern void Frequency_squarechirp_terminate(void);
+extern void Frequency_stepchirp_initialize(void);
+extern void Frequency_stepchirp_output(void);
+extern void Frequency_stepchirp_update(void);
+extern void Frequency_stepchirp_terminate(void);
 
 /* Real-time Model object */
-extern RT_MODEL_Frequency_squarechirp_T *const Frequency_squarechirp_M;
+extern RT_MODEL_Frequency_stepchirp_T *const Frequency_stepchirp_M;
 
 /*-
  * The generated code includes comments that allow you to trace directly
@@ -327,7 +323,7 @@ extern RT_MODEL_Frequency_squarechirp_T *const Frequency_squarechirp_M;
  *
  * Here is the system hierarchy for this model
  *
- * '<Root>' : 'Frequency_squarechirp'
- * '<S1>'   : 'Frequency_squarechirp/State Space Equation1'
+ * '<Root>' : 'Frequency_stepchirp'
+ * '<S1>'   : 'Frequency_stepchirp/State Space Equation1'
  */
-#endif                                 /* RTW_HEADER_Frequency_squarechirp_h_ */
+#endif                                 /* RTW_HEADER_Frequency_stepchirp_h_ */

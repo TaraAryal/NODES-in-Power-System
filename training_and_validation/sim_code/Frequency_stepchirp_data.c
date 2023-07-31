@@ -1,5 +1,5 @@
 /*
- *  rtmodel.h:
+ * Frequency_stepchirp_data.c
  *
  * Academic License - for use in teaching, academic research, and meeting
  * course requirements at degree granting institutions only.  Not for
@@ -18,12 +18,38 @@
  * Validation result: Not run
  */
 
-#ifndef RTW_HEADER_rtmodel_h_
-#define RTW_HEADER_rtmodel_h_
-
-/*
- *  Includes the appropriate headers when we are using rtModel
- */
 #include "Frequency_stepchirp.h"
-#define GRTINTERFACE                   0
-#endif                                 /* RTW_HEADER_rtmodel_h_ */
+#include "Frequency_stepchirp_private.h"
+
+/* Block parameters (default storage) */
+P_Frequency_stepchirp_T Frequency_stepchirp_P = {
+  /* Expression: 0.0
+   * Referenced by: '<Root>/Delay'
+   */
+  0.0,
+
+  /* Expression: 0
+   * Referenced by: '<Root>/deltaomega 1'
+   */
+  0.0,
+
+  /* Expression: 0
+   * Referenced by: '<Root>/Original w'
+   */
+  0.0,
+
+  /* Expression: 20
+   * Referenced by: '<Root>/Step'
+   */
+  20.0,
+
+  /* Expression: 0
+   * Referenced by: '<Root>/Step'
+   */
+  0.0,
+
+  /* Expression: 0.2
+   * Referenced by: '<Root>/Step'
+   */
+  0.2
+};

@@ -1,5 +1,5 @@
 /*
- *  rtmodel.h:
+ * Frequency_stepchirp_types.h
  *
  * Academic License - for use in teaching, academic research, and meeting
  * course requirements at degree granting institutions only.  Not for
@@ -18,12 +18,18 @@
  * Validation result: Not run
  */
 
-#ifndef RTW_HEADER_rtmodel_h_
-#define RTW_HEADER_rtmodel_h_
+#ifndef RTW_HEADER_Frequency_stepchirp_types_h_
+#define RTW_HEADER_Frequency_stepchirp_types_h_
+#include "rtwtypes.h"
+#include "builtin_typeid_types.h"
+#include "multiword_types.h"
 
-/*
- *  Includes the appropriate headers when we are using rtModel
- */
-#include "Frequency_stepchirp.h"
-#define GRTINTERFACE                   0
-#endif                                 /* RTW_HEADER_rtmodel_h_ */
+/* Model Code Variants */
+
+/* Parameters (default storage) */
+typedef struct P_Frequency_stepchirp_T_ P_Frequency_stepchirp_T;
+
+/* Forward declaration for rtModel */
+typedef struct tag_RTM_Frequency_stepchirp_T RT_MODEL_Frequency_stepchirp_T;
+
+#endif                             /* RTW_HEADER_Frequency_stepchirp_types_h_ */

@@ -1,15 +1,15 @@
 /*
- * Frequency_squarechirp_data.c
+ * Frequency_stepchirp_data.c
  *
  * Academic License - for use in teaching, academic research, and meeting
  * course requirements at degree granting institutions only.  Not for
  * government, commercial, or other organizational use.
  *
- * Code generation for model "Frequency_squarechirp".
+ * Code generation for model "Frequency_stepchirp".
  *
- * Model version              : 1.29
+ * Model version              : 1.31
  * Simulink Coder version : 9.6 (R2021b) 14-May-2021
- * C source code generated on : Mon Jul 31 12:14:46 2023
+ * C source code generated on : Mon Jul 31 18:03:32 2023
  *
  * Target selection: grt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -18,11 +18,11 @@
  * Validation result: Not run
  */
 
-#include "Frequency_squarechirp.h"
-#include "Frequency_squarechirp_private.h"
+#include "Frequency_stepchirp.h"
+#include "Frequency_stepchirp_private.h"
 
 /* Block parameters (default storage) */
-P_Frequency_squarechirp_T Frequency_squarechirp_P = {
+P_Frequency_stepchirp_T Frequency_stepchirp_P = {
   /* Expression: 0.0
    * Referenced by: '<Root>/Delay'
    */
@@ -38,23 +38,18 @@ P_Frequency_squarechirp_T Frequency_squarechirp_P = {
    */
   0.0,
 
-  /* Expression: 0.1
-   * Referenced by: '<Root>/Pulse Generator1'
+  /* Expression: 20
+   * Referenced by: '<Root>/Step'
    */
-  0.1,
-
-  /* Computed Parameter: PulseGenerator1_Period
-   * Referenced by: '<Root>/Pulse Generator1'
-   */
-  50.0,
-
-  /* Computed Parameter: PulseGenerator1_Duty
-   * Referenced by: '<Root>/Pulse Generator1'
-   */
-  25.0,
+  20.0,
 
   /* Expression: 0
-   * Referenced by: '<Root>/Pulse Generator1'
+   * Referenced by: '<Root>/Step'
    */
-  0.0
+  0.0,
+
+  /* Expression: 0.2
+   * Referenced by: '<Root>/Step'
+   */
+  0.2
 };

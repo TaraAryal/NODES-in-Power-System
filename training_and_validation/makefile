@@ -2,13 +2,13 @@ CC          	= gcc
 RM          	= rm
 CFLAGS      	= -O3 -lm -fPIC
 LDFLAGS         = -lm
-SOURCES_MAIN    = Frequency_squarechirp_main.c
-SOURCES     	= Frequency_squarechirp_interface.c sim_code/Frequency_squarechirp.c sim_code/Frequency_squarechirp_data.c sim_code/rtGetInf.c sim_code/rtGetNaN.c sim_code/rt_logging.c sim_code/rt_nonfinite.c 
-OBJECT_MAIN		= Frequency_squarechirp_main.o
+SOURCES_MAIN    = Frequency_stepchirp_main.c
+SOURCES     	= Frequency_stepchirp_interface.c sim_code/Frequency_stepchirp.c sim_code/Frequency_stepchirp_data.c sim_code/rtGetInf.c sim_code/rtGetNaN.c sim_code/rt_logging.c sim_code/rt_nonfinite.c 
+OBJECT_MAIN		= Frequency_stepchirp_main.o
 OBJECTS     	= $(SOURCES:.c=.o)
 EXECS       	= $(SOURCES:%.c=%)
-TARGET			= Frequency_squarechirp_main
-SHARED_LIB		= Frequency_squarechirp_lib.so
+TARGET			= Frequency_stepchirp_main
+SHARED_LIB		= Frequency_stepchirp_lib.so
 decimation		= 1
 stop_time 		= -1
 
