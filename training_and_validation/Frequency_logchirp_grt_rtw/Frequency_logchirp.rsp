@@ -1,7 +1,0 @@
-rt_logging.obj
-Frequency_logchirp.obj
-Frequency_logchirp_data.obj
-rtGetInf.obj
-rtGetNaN.obj
-rt_nonfinite.obj
-rt_main.obj
