@@ -1,34 +1,62 @@
+# Filename:       makefile
+# Written by:     Niranjan Bhujel
+# Date:           Nov-15-2023 11:53:14
+
+
 CC          	= gcc
+OUT             = -o 
 RM          	= rm
-CFLAGS      	= -O3 -lm -fPIC
+
+CFLAGS			= 
+CFLAGS      	+= -O2 
+CFLAGS      	+= -lm
+CFLAGS			+= -fPIC
+CFLAGS      	+= -DRT=RT
+CFLAGS      	+= -DUSE_RTMODEL
+CFLAGS      	+= -DMAT_FILE=1
+
 LDFLAGS         = -lm
-SOURCES_MAIN    = Frequency_stepchirp_main.c
-SOURCES     	= Frequency_stepchirp_interface.c sim_code/Frequency_stepchirp.c sim_code/Frequency_stepchirp_data.c sim_code/rtGetInf.c sim_code/rtGetNaN.c sim_code/rt_logging.c sim_code/rt_nonfinite.c 
-OBJECT_MAIN		= Frequency_stepchirp_main.o
+SOURCES_MAIN    = Frequency_logchirp_main.c
+SOURCES     	= Frequency_logchirp_interface.c 
+SOURCES         +=sim_code/Frequency_logchirp.c
+SOURCES         +=sim_code/Frequency_logchirp_data.c
+SOURCES         +=sim_code/rtGetInf.c
+SOURCES         +=sim_code/rtGetNaN.c
+SOURCES         +=sim_code/rt_logging.c
+SOURCES         +=sim_code/rt_nonfinite.c
+
+
+OBJECT_MAIN		= Frequency_logchirp_main.o
 OBJECTS     	= $(SOURCES:.c=.o)
+
 EXECS       	= $(SOURCES:%.c=%)
-TARGET			= Frequency_stepchirp_main
-SHARED_LIB		= Frequency_stepchirp_lib.so
-decimation		= 1
+
+TARGET			= Frequency_logchirp_main
+
+SHARED_LIB		= Frequency_logchirp_lib.so
+
 stop_time 		= -1
 
 
 .PHONY: all
 all: $(OBJECT_MAIN) $(OBJECTS) 
-	$(CC) $(CFLAGS) $(OBJECT_MAIN) $(OBJECTS) -o $(TARGET)
+	$(CC) $(CFLAGS) $(OBJECT_MAIN) $(OBJECTS) $(OUT) $(TARGET)
 
 .PHONY: shared_lib
 shared_lib: $(OBJECTS)
-	$(CC) -fPIC -shared $(CFLAGS) $(OBJECTS) -o $(SHARED_LIB)
+	$(CC) -fPIC -shared $(CFLAGS) $(OBJECTS) $(OUT) $(SHARED_LIB)
 
 .c.o:
-	$(CC) -c $(CFLAGS) $< -o $@
+	$(CC) -c $(CFLAGS) $< $(OUT) $@
 
 .o.: 
-	$(CC) $^ $(LDFLAGS) -o $@
+	$(CC) $^ $(LDFLAGS) $(OUT) $@
 
 run: all
 	./$(TARGET) $(stop_time) $(decimation)
+
+
+
 	
 .PHONY: clean
 clean:
