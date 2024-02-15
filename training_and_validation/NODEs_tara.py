@@ -6,7 +6,7 @@ Written by  :Tara Aryal and Niranjan Bhujel
 
 # getting system from matlab
 from Frequency_logchirp_pyinterface import Frequency_logchirp
-from Frequency_squarechirp_pyinterface import Frequency_squarechirp
+from square_validation_signal.Frequency_square_pyinterface import Frequency_square
 # from Frequency_dynamics_negative_step_pyinterface import Frequency_dynamics_negative_step
 import matplotlib as mpl
 import matplotlib.pyplot as plt
@@ -86,7 +86,7 @@ u0=torch.tensor(inputpower0[250:],dtype=torch.float32)
 true_y0 = true_y0.transpose(0, 1)
 
 #Validation Data Sets 1
-model1 = Frequency_squarechirp(compile=False)
+model1 = Frequency_square(compile=False)
 # fmin = np.array([0.1])
 # fmax = np.array([1.0])
 model1.reset()
